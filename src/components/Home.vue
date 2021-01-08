@@ -89,6 +89,7 @@ export default {
       data = await fetchData()
     } catch {
       console.error('Error fetching data.')
+      data = { ...sampleData }
     }
 
     let socialMedia = []
