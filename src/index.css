@@ -1,8 +1,153 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+::selection {
+  background-color: #e3f2fd;
+}
+*:focus {
+  outline: var(--color-primary) solid 0.1px;
+}
+html {
+  cursor: auto;
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Ubuntu', 'Cantarell',
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  font-size: 16px;
+  letter-spacing: 10px;
+  padding: 0;
+  scroll-behavior: smooth;
+  word-spacing: 16px;
+}
+
+body {
+  --color-box-shadow: #941e49;
+  --color-bg-light: #cb2964;
+  --color-white: #fae8ee;
+  --color-bg-dark: #bd0f4d;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--color-bg-light);
+  color: var(--color-white);
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100vw;
+}
+
+li {
+  list-style: none;
+}
+
+.bg__dark {
+  background: var(--color-bg-dark);
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  left: 0;
+}
+
+.brand__name {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-size: 1.5em;
+  font-weight: 100;
+  margin: 3rem auto 0;
+}
+
+.featured {
+  box-shadow: var(--color-box-shadow) -12px 12px 20px 2px;
+  height: auto;
+  margin: auto;
+  margin-top: 2rem;
+  max-height: 32rem;
+  max-width: 28rem;
+  width: 80%;
+}
+
+.featured__image {
+  box-shadow: var(--color-box-shadow) 0 -1px 8px;
+  height: 100%;
+  margin-bottom: -3px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.Loading {
+  display: flex;
+  font-size: 2rem;
+  margin-top: 8rem;
+  justify-content: center;
+}
+
+.Main {
+  margin: auto;
+  width: 60%;
+}
+
+.Main__content {
+  position: relative;
+}
+
+.navigation__list {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 1rem 0 0 5rem;
+  padding: 0;
+}
+
+.navigation__list__image {
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+}
+
+.navigation__list__image__wrapper {
+  justify-self: center;
+}
+
+.navigation__list__item {
+  justify-self: center;
+}
+
+.navigation__list__link {
+  color: inherit;
+  font-size: 0.75em;
+  padding: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.navigation__list__link:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.navigation__list__wrapper {
+  display: flex;
+  gap: 3rem;
+}
+
+.social__icons {
+  --border-radius: 2px;
+  position: absolute;
+  right: 1.75rem;
+  top: 35%;
+}
+
+.social__icons__image {
+  height: 2rem;
+  width: 2rem;
+}
+
+.social__icons__link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.list--left {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list--right {
+  margin-left: auto;
 }
