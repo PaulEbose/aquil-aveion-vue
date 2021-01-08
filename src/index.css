@@ -1,9 +1,11 @@
 ::selection {
   background-color: #e3f2fd;
 }
+
 *:focus {
   outline: var(--color-primary) solid 0.1px;
 }
+
 html {
   cursor: auto;
   font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Ubuntu', 'Cantarell',
@@ -46,10 +48,11 @@ li {
 }
 
 .brand__name {
-  text-align: center;
   font-size: 1.5em;
   font-weight: 100;
   margin: 3rem auto 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .featured {
@@ -115,6 +118,7 @@ li {
   text-decoration: none;
   text-transform: uppercase;
 }
+
 .navigation__list__link:hover {
   text-decoration: underline;
   color: #fff;
@@ -141,6 +145,10 @@ li {
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.5rem;
+}
+
+.social__icons__link:hover {
+  box-shadow: 0px 0px 20px var(--color-box-shadow);
 }
 
 .list--left {
