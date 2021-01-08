@@ -2,7 +2,11 @@
   <ul class="social__icons">
     <li v-for="{ href, icon, platform } in socialMedia" :key="platform">
       <a :href="href" class="social__icons__link">
-        <img :src="icon" :alt="`Reach us on ${platform}`" class="social__icons__image" />
+        <img
+          :src="icon"
+          :alt="`Reach us on ${platform}`"
+          class="social__icons__image"
+        />
       </a>
     </li>
   </ul>
@@ -12,7 +16,7 @@
 
     <figure class="featured">
       <img
-        src="src/assets/model.png"
+        src="../assets/model.png"
         :alt="`${brandName}: Freshly Squeezed`"
         class="featured__image"
       />
@@ -32,7 +36,11 @@
 
         <div class="navigation__list__image__wrapper" aria-hidden="true">
           <!-- decorative image -->
-          <img src="src/assets/nav-img.jpg" alt="" class="navigation__list__image" />
+          <img
+            src="../assets/nav-img.jpg"
+            alt=""
+            class="navigation__list__image"
+          />
         </div>
 
         <li
@@ -50,45 +58,66 @@
 </template>
 
 <script>
+import EmailIcon from "../assets/email.svg";
+import InstagramIcon from "../assets/instagram.svg";
+import SnapchatIcon from "../assets/snapchat.svg";
+import TwitterIcon from "../assets/twitter.svg";
+
 export default {
-  name: 'Home',
+  name: "Home",
   async setup() {
-    const navigationPagesLeft = ['home', 'about']
-    const navigationPagesRight = ['gallery', 'contact']
-    let data
+    // async setup(ctx, props) {
+    const navigationPagesLeft = ["home", "about"];
+    const navigationPagesRight = ["gallery", "contact"];
+    let data;
 
     const fetchData = async () => {
-      const res = await fetch('https://hirng-x2021.glitch.me/api')
+      const res = await fetch("https://hirng-x2021.glitch.me/api");
       if (res.ok) {
-        return await res.json()
+        return await res.json();
       } else {
-        console.error('Incompatiable data.')
+        console.error("Incompatiable data.");
       }
-    }
+    };
 
     try {
-      data = await fetchData()
+      data = await fetchData();
     } catch {
-      console.error('Error fetching data.')
+      console.error("Error fetching data.");
     }
 
-    let socialMedia = []
+    let socialMedia = [];
     for (const platform in data.social_media) {
-      let href = `https://${platform}.com/${data.social_media[platform]}`
+      let href = `https://${platform}.com/${data.social_media[platform]}`;
+      let icon = "";
 
-      if (platform === 'email') {
-        href = `mailto://${data.social_media[platform]}`
+      switch (platform) {
+        case "email":
+          href = `mailto://${data.social_media[platform]}`;
+          icon = EmailIcon;
+          break;
+        case "instagram":
+          icon = InstagramIcon;
+          break;
+        case "snapchat":
+          icon = SnapchatIcon;
+          break;
+        case "twitter":
+          icon = TwitterIcon;
+          break;
+        default:
+          break;
       }
 
-      socialMedia.push({ href, icon: `/src/assets/${platform}.svg`, platform })
+      socialMedia.push({ href, icon, platform });
     }
 
     return {
       brandName: data.name,
       navigationPagesLeft,
       navigationPagesRight,
-      socialMedia
-    }
-  }
-}
+      socialMedia,
+    };
+  },
+};
 </script>
